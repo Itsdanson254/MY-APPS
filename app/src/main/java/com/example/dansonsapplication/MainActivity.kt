@@ -46,7 +46,8 @@ fun Demo(){
             fontSize = 30.sp,
             fontStyle = FontStyle.Italic,
             fontWeight = FontWeight.Bold)
-        Text(text = "Android is a good programming language to use")
+        Text(text = "Android is a good programming language to use",
+                 fontWeight = FontWeight.Bold)
 
 
         Text(text = "Types of cars",
@@ -62,10 +63,10 @@ fun Demo(){
             color = Color.White
         )
 
-        Text(text = "1.BMW")
-        Text(text = "2.Mercedees Benz")
-        Text(text = "3.Bughatti")
-        Text(text = "4.Ferrari")
+        Text(text = "1.BMW",fontWeight = FontWeight.Bold)
+        Text(text = "2.Mercedees Benz",fontWeight = FontWeight.Bold)
+        Text(text = "3.Bughatti",fontWeight = FontWeight.Bold)
+        Text(text = "4.Ferrari",fontWeight = FontWeight.Bold)
 
         Text(text = "Types of cars Brands",
             fontSize = 22.sp,
