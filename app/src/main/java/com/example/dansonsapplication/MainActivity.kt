@@ -3,18 +3,31 @@ package com.example.dansonsapplication
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Divider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -48,7 +61,19 @@ fun Demo(){
             fontWeight = FontWeight.Bold)
         Text(text = "Android is a good programming language to use",
                  fontWeight = FontWeight.Bold)
+        Spacer(modifier = Modifier.height(10.dp))
 
+
+        Button(onClick = { /*TODO*/ },
+            shape = CircleShape,
+            colors = ButtonDefaults.buttonColors(Color.Red),
+
+            ) {
+            Text(text = "See More")
+        }
+
+       
+        Spacer(modifier = Modifier.height(12.dp))
 
         Text(text = "Types of cars",
             fontSize = 32.sp,
@@ -67,12 +92,13 @@ fun Demo(){
         Text(text = "2.Mercedees Benz",fontWeight = FontWeight.Bold)
         Text(text = "3.Bughatti",fontWeight = FontWeight.Bold)
         Text(text = "4.Ferrari",fontWeight = FontWeight.Bold)
-
+        Spacer(modifier = Modifier.height(13.dp))
         Text(text = "Types of cars Brands",
             fontSize = 22.sp,
             modifier = Modifier
+                .height(45.dp)
                 .fillMaxWidth()
-                .background(Color.Blue)
+                .background(Color.Red)
                 .height(34.dp)
             ,
             textAlign = TextAlign.Center,
@@ -83,17 +109,41 @@ fun Demo(){
 
         Text(text = "1.BMW", fontWeight = FontWeight.Bold)
         Text(text = "Its one of the most popular brands thats liked by people countrywide..")
-        Text(text = "2.Mercedees Benz",fontWeight = FontWeight.Bold)
-        Text(text = "Its one of the more trending popular brands thats liked by people countrywide..")
-        Text(text = "3.Bughatti",fontWeight = FontWeight.Bold)
-        Text(text = "Its one of the  popular brands thats liked by people countrywide..")
-        Text(text = "4.Ferrari",fontWeight = FontWeight.Bold)
-        Text(text = "Its one of the unliked popular brands thats liked by people countrywide..")
 
+        Text(text = "2.Bughatti",fontWeight = FontWeight.Bold)
+        Text(text = "Its one of the  popular brands thats liked by people countrywide..")
+        Text(text = "3.Ferrari",fontWeight = FontWeight.Bold)
+        Spacer(modifier = Modifier.height(10.dp))
+       Divider()
+        Text(
+            text = "Its one of the unliked popular brands thats liked by people countrywide.",
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold)
+        
+
+        //CENTERING AN IMAGE
+       Box  (modifier = Modifier.fillMaxWidth(),
+           contentAlignment = Alignment.Center){
+           Image(painter = painterResource(id = R.drawable.tech) ,
+               contentDescription = "Technology",
+               modifier = Modifier.size(200.dp))
+       }
+
+        Spacer(modifier = Modifier.height(10.dp))
+        Button(onClick = { /*TODO*/ },
+              shape = RoundedCornerShape(5.dp),
+              colors = ButtonDefaults.buttonColors(Color.Red),
+              modifier = Modifier
+                  .fillMaxWidth()
+                  .padding(start = 30.dp, end = 30.dp)
+        ) {
+Text(text = "Continued")
+        }
+
+       }
 
     }
-
-}
+  
 
 @Preview(showBackground = true)
 @Composable
