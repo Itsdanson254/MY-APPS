@@ -67,8 +67,7 @@ fun Demo(){
         Button(onClick = { /*TODO*/ },
             shape = CircleShape,
             colors = ButtonDefaults.buttonColors(Color.Red),
-
-            ) {
+            modifier = Modifier.align(Alignment.CenterHorizontally)) {
             Text(text = "See More")
         }
 
@@ -108,10 +107,9 @@ fun Demo(){
         )
 
         Text(text = "1.BMW", fontWeight = FontWeight.Bold)
-        Text(text = "Its one of the most popular brands thats liked by people countrywide..")
 
         Text(text = "2.Bughatti",fontWeight = FontWeight.Bold)
-        Text(text = "Its one of the  popular brands thats liked by people countrywide..")
+
         Text(text = "3.Ferrari",fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(10.dp))
        Divider()
