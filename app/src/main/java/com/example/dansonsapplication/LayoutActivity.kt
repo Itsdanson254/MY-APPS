@@ -1,5 +1,6 @@
 package com.example.dansonsapplication
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,10 +15,12 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -28,7 +31,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -41,7 +47,7 @@ class LayoutActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
+                Layout()
         }
     }
 }
@@ -54,15 +60,18 @@ fun Layout() {
 
     Column(modifier = Modifier.fillMaxSize()) {
 
+        var mContext = LocalContext.current
         //TopAppBar
         TopAppBar(
             title = { Text(text = "HOME", color = Color.White) },
             colors = TopAppBarDefaults.mediumTopAppBarColors(Color.Red),
             navigationIcon = {
-                IconButton(onClick = { /*TODO*/ }) {
+                IconButton(onClick = {
+                    mContext.startActivity(Intent(mContext,MainActivity::class.java))
+                }) {
                     Icon(
-                        imageVector = Icons.Default.Menu,
-                        contentDescription = "menu",
+                        imageVector = Icons.Default.ArrowBack,
+                        contentDescription = "arrowback",
                         tint = Color.White
                     )
 
@@ -103,11 +112,13 @@ fun Layout() {
 
             Image(painter = painterResource(id = R.drawable.germansherphard),
                 contentDescription = "These is the most wanted dog",
-                modifier = Modifier.size(width = 200.dp, height = 200.dp)
+                modifier = Modifier
+                    .size(width = 150.dp, height = 150.dp)
+
             )
             Spacer(modifier = Modifier.width(20.dp))
             Column {
-                Text(text = "Siberian Husky", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                Text(text = "GERMAN SHERPHERD", fontWeight = FontWeight.Bold, fontSize = 18.sp)
                 Text(text = "Its one of the most wanted dog mby kenyans soldiers during training.")
             }
         }
@@ -119,11 +130,11 @@ fun Layout() {
 
             Image(painter = painterResource(id = R.drawable.alaskanmalamut),
                 contentDescription = "These is the most wanted dog",
-                modifier = Modifier.size(width = 200.dp, height = 200.dp)
+                modifier = Modifier.size(width = 150.dp, height = 150.dp)
             )
             Spacer(modifier = Modifier.width(20.dp))
             Column {
-                Text(text = "Siberian Husky", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                Text(text = "ALASKANMALAMUT", fontWeight = FontWeight.Bold, fontSize = 18.sp)
                 Text(text = "Its one of the most wanted dog mby kenyans soldiers during training.")
             }
         }
@@ -135,19 +146,22 @@ fun Layout() {
 
             Image(painter = painterResource(id = R.drawable.bulldog),
                 contentDescription = "These is the most wanted dog",
-                modifier = Modifier.size(width = 200.dp, height = 200.dp)
+                modifier = Modifier.size(width = 150.dp, height = 150.dp)
             )
             Spacer(modifier = Modifier.width(20.dp))
             Column {
-                Text(text = "Siberian Husky", fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                Text(text = "BULL DOG", fontWeight = FontWeight.Bold, fontSize = 18.sp)
                 Text(text = "Its one of the most wanted dog mby kenyans soldiers during training.")
             }
         }
 //End of row three
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(50.dp))
 
-          Button(onClick = { /*TODO*/ },
+          Button(onClick = {
+              mContext.startActivity(Intent(mContext,IntentActivity::class.java))
+          },
           modifier = Modifier.fillMaxWidth(),
+              colors = ButtonDefaults.buttonColors(Color.Red),
               shape = CircleShape) {
               Text(text = "NEXT")
               

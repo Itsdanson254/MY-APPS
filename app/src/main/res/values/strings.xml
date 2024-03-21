@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">DANSON\'S  Application</string>
     <string name="title_activity_layout">LayoutActivity</string>
+    <string name="title_activity_intent">IntentActivity</string>
 </resources>
