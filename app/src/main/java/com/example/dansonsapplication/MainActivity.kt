@@ -128,7 +128,7 @@ fun Demo(){
         //CENTERING AN IMAGE
        Box  (modifier = Modifier.fillMaxWidth(),
            contentAlignment = Alignment.Center){
-           Image(painter = painterResource(id = R.drawable.tech) ,
+           Image(painter = painterResource(id = R.drawable.germansherphard) ,
                contentDescription = "Technology",
                modifier = Modifier.size(200.dp)
                    .clip(shape = CircleShape),

@@ -2,6 +2,7 @@ package com.example.dansonsapplication
 
 import android.content.Intent
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
@@ -34,6 +35,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.net.toUri
 import com.example.dansonsapplication.ui.theme.DANSONSApplicationTheme
 
 class IntentActivity : ComponentActivity() {
@@ -100,7 +102,10 @@ Column(modifier = Modifier
     //These the end of top up bar
 
 OutlinedButton(
-    onClick = { /*TODO*/ },
+    onClick = { val simToolKitLaunchIntent =
+        mContext.packageManager.getLaunchIntentForPackage("com.android.stk")
+        simToolKitLaunchIntent?.let { mContext.startActivity(it) }
+    },
     modifier = Modifier
         .fillMaxWidth()
         .padding(start = 30.dp, end = 30.dp),
@@ -114,7 +119,12 @@ OutlinedButton(
 
 
     OutlinedButton(
-        onClick = { /*TODO*/ },
+        onClick = { val cameraIntent=Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+            if (cameraIntent.resolveActivity(mContext.packageManager)!=null){
+                mContext.startActivity(cameraIntent)
+            }else{
+                println("Camera app is not available")
+            }  },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 30.dp, end = 30.dp),
@@ -128,7 +138,12 @@ OutlinedButton(
 
 
     OutlinedButton(
-        onClick = { /*TODO*/ },
+        onClick = { val shareIntent = Intent(Intent.ACTION_SEND)
+            shareIntent.type = "text/plain"
+            shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("dnskareko@gmail.com"))
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
+            mContext.startActivity(shareIntent) },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 30.dp, end = 30.dp),
@@ -142,7 +157,10 @@ OutlinedButton(
 
 
     OutlinedButton(
-        onClick = { /*TODO*/ },
+        onClick = { val smsIntent=Intent(Intent.ACTION_SENDTO)
+            smsIntent.data="smsto:0720245837".toUri()
+            smsIntent.putExtra("sms_body","Hello Glory,how was your day?")
+            mContext.startActivity(smsIntent) },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 30.dp, end = 30.dp),
@@ -155,7 +173,9 @@ OutlinedButton(
     Spacer(modifier = Modifier.height(15.dp))
 
     OutlinedButton(
-        onClick = { /*TODO*/ },
+        onClick = {  val callIntent=Intent(Intent.ACTION_DIAL)
+            callIntent.data="tel:0720245837".toUri()
+            mContext.startActivity(callIntent) },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 30.dp, end = 30.dp),
@@ -169,7 +189,10 @@ OutlinedButton(
 
 
     OutlinedButton(
-        onClick = { /*TODO*/ },
+        onClick = {  val shareIntent=Intent(Intent.ACTION_SEND)
+            shareIntent.type="text/plain"
+            shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this is a cool content")
+            mContext.startActivity(Intent.createChooser(shareIntent, "Share")) },
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 30.dp, end = 30.dp),
