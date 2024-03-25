@@ -216,7 +216,7 @@ OutlinedButton(
 
     Spacer(modifier = Modifier.height(15.dp))
     Button(onClick = {
-        mContext.startActivity(Intent(mContext,IntentActivity::class.java))
+        mContext.startActivity(Intent(mContext,FormActivity::class.java))
     },
         modifier = Modifier.fillMaxWidth(),
         colors = ButtonDefaults.buttonColors(Color.Red),
