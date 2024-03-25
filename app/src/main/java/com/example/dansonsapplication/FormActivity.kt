@@ -61,7 +61,7 @@ fun MyForm(){
 Column(modifier = Modifier
     .fillMaxSize()
     .paint(
-        painterResource(id = R.drawable.ic_launcher_background),
+        painterResource(id = R.drawable.bcgrd),
         contentScale = ContentScale.FillBounds
     )
 ){
