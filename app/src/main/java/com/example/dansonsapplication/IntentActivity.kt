@@ -6,17 +6,21 @@ import android.provider.MediaStore
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -33,8 +37,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.core.net.toUri
 import com.example.dansonsapplication.ui.theme.DANSONSApplicationTheme
 
@@ -82,7 +89,10 @@ Column(modifier = Modifier
 
         },
         actions = {
-            IconButton(onClick = { /*TODO*/ }) {
+            IconButton(onClick = {  val shareIntent=Intent(Intent.ACTION_SEND)
+                shareIntent.type="text/plain"
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "Check out this is a cool content")
+                mContext.startActivity(Intent.createChooser(shareIntent, "Share")) }) {
                 Icon(
                     imageVector = Icons.Default.Share,
                     contentDescription = "Share",
@@ -138,10 +148,11 @@ OutlinedButton(
 
 
     OutlinedButton(
-        onClick = { val shareIntent = Intent(Intent.ACTION_SEND)
+        onClick = {
+            val shareIntent = Intent(Intent.ACTION_SEND)
             shareIntent.type = "text/plain"
             shareIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("dnskareko@gmail.com"))
-            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "subject")
+            shareIntent.putExtra(Intent.EXTRA_SUBJECT, "APPLICATION FOR A JOB")
             shareIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is the email body")
             mContext.startActivity(shareIntent) },
         modifier = Modifier
@@ -157,7 +168,8 @@ OutlinedButton(
 
 
     OutlinedButton(
-        onClick = { val smsIntent=Intent(Intent.ACTION_SENDTO)
+        onClick = {
+            val smsIntent=Intent(Intent.ACTION_SENDTO)
             smsIntent.data="smsto:0720245837".toUri()
             smsIntent.putExtra("sms_body","Hello Glory,how was your day?")
             mContext.startActivity(smsIntent) },
@@ -203,7 +215,28 @@ OutlinedButton(
     }
 
     Spacer(modifier = Modifier.height(15.dp))
+    Button(onClick = {
+        mContext.startActivity(Intent(mContext,IntentActivity::class.java))
+    },
+        modifier = Modifier.fillMaxWidth(),
+        colors = ButtonDefaults.buttonColors(Color.Red),
+        shape = CircleShape
+    ) {
+        Text(text = "NEXT")
 
+    }
+    Spacer(modifier = Modifier.height(15.dp))
+
+    Text(
+        text = "Do not have an Account? REGISTER",
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold,
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable {
+                mContext.startActivity(Intent(mContext,FormActivity::class.java))
+            },
+        textAlign = TextAlign.Center)
 
 }
 
