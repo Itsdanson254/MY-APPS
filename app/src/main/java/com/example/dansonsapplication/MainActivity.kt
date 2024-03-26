@@ -70,11 +70,11 @@ fun Demo(){
         Spacer(modifier = Modifier.height(10.dp))
 
 
-        Button(onClick = { /*TODO*/ },
+        Button(onClick = {  mContext.startActivity(Intent(mContext,DESTINATIONACTIVITY::class.java)) },
             shape = CircleShape,
             colors = ButtonDefaults.buttonColors(Color.Red),
             modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            Text(text = "See More")
+            Text(text = "DESTINATION")
         }
 
        
@@ -128,7 +128,7 @@ fun Demo(){
         //CENTERING AN IMAGE
        Box  (modifier = Modifier.fillMaxWidth(),
            contentAlignment = Alignment.Center){
-           Image(painter = painterResource(id = R.drawable.germansherphard) ,
+           Image(painter = painterResource(id = R.drawable.mat) ,
                contentDescription = "Technology",
                modifier = Modifier.size(200.dp)
                    .clip(shape = CircleShape),

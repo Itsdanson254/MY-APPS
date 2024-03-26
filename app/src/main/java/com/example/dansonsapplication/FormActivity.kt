@@ -19,6 +19,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
@@ -120,7 +121,7 @@ Box (
         value = email,
         onValueChange = {email = it} ,
         placeholder = { Text(text = "EMAILADDRESS")},
-        leadingIcon ={ Icon(imageVector = Icons.Default.Person, contentDescription ="email")},
+        leadingIcon ={ Icon(imageVector = Icons.Default.Email, contentDescription ="email")},
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 20.dp, end = 20.dp),
@@ -132,7 +133,7 @@ Box (
         value = password,
         onValueChange = {password = it} ,
         placeholder = { Text(text = "PASSWORD")},
-        leadingIcon ={ Icon(imageVector = Icons.Default.Person, contentDescription ="LOCK")},
+        leadingIcon ={ Icon(imageVector = Icons.Default.Lock, contentDescription ="LOCK")},
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 20.dp, end = 20.dp),
@@ -145,7 +146,7 @@ Box (
         value = contact,
         onValueChange = {contact = it} ,
         placeholder = { Text(text = "PHONE NUMBER")},
-        leadingIcon ={ Icon(imageVector = Icons.Default.Person, contentDescription ="call")},
+        leadingIcon ={ Icon(imageVector = Icons.Default.Call, contentDescription ="call")},
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 20.dp, end = 20.dp),
