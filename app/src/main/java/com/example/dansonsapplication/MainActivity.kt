@@ -77,6 +77,14 @@ fun Demo(){
             Text(text = "DESTINATION")
         }
 
+
+        Button(onClick = {  mContext.startActivity(Intent(mContext,ExploreActivity::class.java)) },
+            shape = CircleShape,
+            colors = ButtonDefaults.buttonColors(Color.Red),
+            modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            Text(text = "EXPLORE")
+        }
+
        
         Spacer(modifier = Modifier.height(12.dp))
 
@@ -121,7 +129,7 @@ fun Demo(){
        Divider()
         Text(
             text = "Its one of the unliked popular brands thats liked by people countrywide.",
-            fontSize = 20.sp,
+            fontSize = 13.sp,
             fontWeight = FontWeight.Bold)
         
 
@@ -147,7 +155,7 @@ fun Demo(){
                   .fillMaxWidth()
                   .padding(start = 30.dp, end = 30.dp)
         ) {
-Text(text = "Continued")
+Text(text = "CONTINUE")
         }
 
        }

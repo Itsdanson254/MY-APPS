@@ -113,7 +113,7 @@ fun Layout() {
             Image(painter = painterResource(id = R.drawable.germansherphard),
                 contentDescription = "These is the most wanted dog",
                 modifier = Modifier
-                    .size(width = 150.dp, height = 150.dp)
+                    .size(width = 200.dp, height = 150.dp)
 
             )
             Spacer(modifier = Modifier.width(20.dp))
@@ -130,7 +130,7 @@ fun Layout() {
 
             Image(painter = painterResource(id = R.drawable.alaskanmalamut),
                 contentDescription = "These is the most wanted dog",
-                modifier = Modifier.size(width = 150.dp, height = 150.dp)
+                modifier = Modifier.size(width = 200.dp, height = 150.dp)
             )
             Spacer(modifier = Modifier.width(20.dp))
             Column {
@@ -146,7 +146,7 @@ fun Layout() {
 
             Image(painter = painterResource(id = R.drawable.bulldog),
                 contentDescription = "These is the most wanted dog",
-                modifier = Modifier.size(width = 150.dp, height = 150.dp)
+                modifier = Modifier.size(width = 200.dp, height = 150.dp)
             )
             Spacer(modifier = Modifier.width(20.dp))
             Column {
@@ -155,9 +155,12 @@ fun Layout() {
             }
         }
 //End of row three
+        Spacer(modifier = Modifier.height(5.dp))
+
+
         Spacer(modifier = Modifier.height(50.dp))
 
-          Button(onClick = {
+        Button(onClick = {
               mContext.startActivity(Intent(mContext,IntentActivity::class.java))
           },
           modifier = Modifier.fillMaxWidth(),

@@ -219,7 +219,7 @@ OutlinedButton(
         mContext.startActivity(Intent(mContext,FormActivity::class.java))
     },
         modifier = Modifier.fillMaxWidth(),
-        colors = ButtonDefaults.buttonColors(Color.Red),
+        colors = ButtonDefaults.buttonColors(Color.Black),
         shape = CircleShape
     ) {
         Text(text = "NEXT")
@@ -231,6 +231,7 @@ OutlinedButton(
         text = "Do not have an Account? REGISTER",
         fontSize = 20.sp,
         fontWeight = FontWeight.Bold,
+
         modifier = Modifier
             .fillMaxWidth()
             .clickable {
