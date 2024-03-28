@@ -85,7 +85,15 @@ fun Demo(){
             Text(text = "EXPLORE")
         }
 
-       
+        Button(onClick = {  mContext.startActivity(Intent(mContext,AssignmentActivity::class.java)) },
+            shape = CircleShape,
+            colors = ButtonDefaults.buttonColors(Color.Red),
+            modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            Text(text = "DISCOVER")
+        }
+
+
+
         Spacer(modifier = Modifier.height(12.dp))
 
         Text(text = "Types of cars",
