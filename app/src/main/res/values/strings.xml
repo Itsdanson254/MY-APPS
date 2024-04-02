@@ -6,4 +6,5 @@
     <string name="title_activity_destinationactivity">DESTINATIONACTIVITY</string>
     <string name="title_activity_explore">ExploreActivity</string>
     <string name="title_activity_assignment">AssignmentActivity</string>
+    <string name="title_activity_lotties">lotties</string>
 </resources>

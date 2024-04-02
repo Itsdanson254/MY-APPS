@@ -101,7 +101,7 @@ Column(
     Spacer(modifier = Modifier.height(20.dp))
 
 
-    Spacer(modifier = Modifier.height(20.dp))
+
 
     //card 2
     Card (
@@ -261,7 +261,7 @@ Column(
     ){
 
         Row {
-            Image(painter = painterResource(id = R.drawable.germansherphard),
+             Image(painter = painterResource(id = R.drawable.germansherphard),
                 contentDescription = "Koda",
                 modifier = Modifier
                     .size(60.dp)
