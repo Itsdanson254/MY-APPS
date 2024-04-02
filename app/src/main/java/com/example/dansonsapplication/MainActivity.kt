@@ -42,6 +42,8 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.airbnb.lottie.Lottie
+import com.airbnb.lottie.LottieComposition
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
@@ -113,12 +115,7 @@ fun Demo(){
             Text(text = "DISCOVER")
         }
 
-        Button(onClick = {  mContext.startActivity(Intent(mContext,LottyActivity::class.java)) },
-            shape = CircleShape,
-            colors = ButtonDefaults.buttonColors(Color.Red),
-            modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            Text(text = "ANIMATION")
-        }
+
 
 
 
