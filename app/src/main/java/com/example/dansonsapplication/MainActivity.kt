@@ -69,7 +69,6 @@ fun Demo(){
             .verticalScroll(rememberScrollState())
             .fillMaxSize()){
 
-
         val mContext = LocalContext.current
         Text(
             text = "WELCOME TO ANDROID",
@@ -115,8 +114,12 @@ fun Demo(){
             Text(text = "DISCOVER")
         }
 
-
-
+        Button(onClick = {  mContext.startActivity(Intent(mContext,LottyActivity::class.java)) },
+            shape = CircleShape,
+            colors = ButtonDefaults.buttonColors(Color.Red),
+            modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            Text(text = "ANIMATION")
+        }
 
 
         Spacer(modifier = Modifier.height(12.dp))
