@@ -65,7 +65,7 @@ Column (modifier = Modifier
     .fillMaxSize()
 
     .paint(
-        painterResource(id = R.drawable.fx6),
+        painterResource(id = R.drawable.fx5),
         contentScale = ContentScale.FillBounds
     ),
     horizontalAlignment = Alignment.CenterHorizontally,
@@ -73,7 +73,7 @@ Column (modifier = Modifier
 
 
     //Lottie Animation
-    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.contact))
+    val composition by rememberLottieComposition(spec = LottieCompositionSpec.RawRes(R.raw.fxscreen))
     val progress by animateLottieCompositionAsState(composition)
     LottieAnimation(composition, progress,
         modifier = Modifier.size(300.dp)
@@ -99,7 +99,7 @@ Column (modifier = Modifier
 }
 
 }
-@Preview(showBackground = true)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun mysplashpreview(){
 
